@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.querySelector('#new-item-form');
   form.addEventListener('submit', handleFormSubmition);
+
+  const deleteButton = document.querySelector('#delete-button');
+  deleteButton.addEventListener('click', handleDeleteButton);
 })
 
 const handleFormSubmition = function( event ){
@@ -13,10 +16,13 @@ const handleFormSubmition = function( event ){
   const formInputAuthor = event.target.author.value;
   const readingList = document.querySelector('#reading-list');
   const newUl = document.createElement('ul');
-  readingList.appendChild(newUl);
+  const newDiv = document.createElement('div');
+  readingList.appendChild(newDiv);
+
   const authorLi = document.createElement('li')
   const categoryLi = document.createElement('li');
   const titleLi = document.createElement('li');
+  newDiv.appendChild(newUl);
   newUl.appendChild(authorLi);
   newUl.appendChild(categoryLi);
   newUl.appendChild(titleLi);
@@ -24,4 +30,9 @@ const handleFormSubmition = function( event ){
   categoryLi.textContent = `Category: ${formInputCategory}`;
   titleLi.textContent = `Title: ${formInputTitle}`;
   event.srcElement.reset();
+}
+
+const handleDeleteButton = function(){
+  const divToRemove = document.querySelector('#reading-list div')
+  divToRemove.parentNode.removeChild(divToRemove);
 }
