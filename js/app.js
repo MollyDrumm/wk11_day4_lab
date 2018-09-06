@@ -23,4 +23,5 @@ const handleFormSubmition = function( event ){
   authorLi.textContent = `Author: ${formInputAuthor}`;
   categoryLi.textContent = `Category: ${formInputCategory}`;
   titleLi.textContent = `Title: ${formInputTitle}`;
+  event.srcElement.reset();
 }
