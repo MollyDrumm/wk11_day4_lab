@@ -17,6 +17,7 @@ const handleFormSubmition = function( event ){
   const readingList = document.querySelector('#reading-list');
   const newUl = document.createElement('ul');
   const newDiv = document.createElement('div');
+  newDiv.classList.add('flex-list');
   readingList.appendChild(newDiv);
 
   const authorLi = document.createElement('li')
